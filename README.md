@@ -5,6 +5,8 @@ terminal-share
 
 Mac OS X 10.8 Mountain Lion introduced [built-in sharing](http://www.apple.com/osx/whats-new/features.html#builtin-sharing). Access to this system-level feature is provided through [`NSSharingService`](http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSSharingService_Class/Reference/Reference.html).
 
+It does everything from posting to Twitter, Facebook, Flickr, Vimeo, YouTube, adding content to your Safari Reading List or iPhoto or Aperature Library, and sending files over airdrop or e-mail. It even supports Chinese web services like Sina Weibo, Tu Dou, and YouKu. 
+
 `terminal-share` extends access to these APIs by proxying through a simple command-line application. Normally, Apple would provide such a Unix command-line interface through a Foundation Tool.
 
 ## Ruby
@@ -51,6 +53,10 @@ $ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /pat
 ```
 $ terminal-share -service twitter -text "This was shared from the command-line, courtesy of terminal-share, by @mattt" -url "https://github.com/mattt/terminal-share"
 ```
+
+### Known Issues
+
+At the moment, distributing just the binary in `terminal-share.app/Contents/MacOS` (which was the intended use-case), the app complains about a missing Info.plist and other information. This will hopefully be addressed soon, and be used for the first gem release.
 
 ## Contact
 
