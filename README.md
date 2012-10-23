@@ -11,6 +11,12 @@ It does everything from posting to Twitter, Facebook, Flickr, Vimeo, & YouTube, 
 
 ## Ruby
 
+```
+$ gem install terminal-share
+```
+
+This will also install the `terminal-share` executable.
+
 ```ruby
 require 'terminal-share'
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    terminal-share (0.1.0)
+    terminal-share (0.1.2)
 
 GEM
   remote: http://rubygems.org/
