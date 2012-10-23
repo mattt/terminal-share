@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F82D7D811633D86400F553DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D7D7D1633D84A00F553DC /* AppDelegate.m */; };
 		F82D7D821633D86700F553DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D7D7E1633D84A00F553DC /* main.m */; };
-		F82D7D881633D94E00F553DC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F82D7D7B1633D84A00F553DC /* MainMenu.xib */; };
 		F82D7D891633D95200F553DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F82D7D791633D84A00F553DC /* InfoPlist.strings */; };
 		F8DB9E661633B53F009D6470 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DB9E651633B53F009D6470 /* Cocoa.framework */; };
 		F8DB9E831633B550009D6470 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DB9E821633B550009D6470 /* ScriptingBridge.framework */; };
@@ -19,7 +18,6 @@
 		F82D7D761633D84A00F553DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Terminal Share/AppDelegate.h"; sourceTree = SOURCE_ROOT; };
 		F82D7D771633D84A00F553DC /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = "Terminal Share/Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		F82D7D7A1633D84A00F553DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		F82D7D7C1633D84A00F553DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MainMenu.xib; sourceTree = "<group>"; };
 		F82D7D7D1633D84A00F553DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Terminal Share/AppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		F82D7D7E1633D84A00F553DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Terminal Share/main.m"; sourceTree = SOURCE_ROOT; };
 		F82D7D7F1633D84A00F553DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Terminal Share/Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -48,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				F82D7D791633D84A00F553DC /* InfoPlist.strings */,
-				F82D7D7B1633D84A00F553DC /* MainMenu.xib */,
 			);
 			name = en.lproj;
 			path = "Terminal Share/en.lproj";
@@ -164,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82D7D891633D95200F553DC /* InfoPlist.strings in Resources */,
-				F82D7D881633D94E00F553DC /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +185,6 @@
 				F82D7D7A1633D84A00F553DC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F82D7D7B1633D84A00F553DC /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F82D7D7C1633D84A00F553DC /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -266,6 +254,12 @@
 				GCC_PREFIX_HEADER = "Terminal Share/Prefix.pch";
 				INFOPLIST_FILE = "Terminal Share/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(INFOPLIST_FILE)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -280,6 +274,12 @@
 				GCC_PREFIX_HEADER = "Terminal Share/Prefix.pch";
 				INFOPLIST_FILE = "Terminal Share/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(INFOPLIST_FILE)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

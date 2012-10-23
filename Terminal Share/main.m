@@ -21,7 +21,15 @@
 // THE SOFTWARE.
 
 #import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 
 int main(int argc, char *argv[]) {
-    return NSApplicationMain(argc, (const char **)argv);
+    @autoreleasepool {
+        NSApplication *application = [NSApplication sharedApplication];
+        AppDelegate *appDelegate = [[AppDelegate alloc] init];
+        [application setDelegate:appDelegate];
+        [application run];
+    }
+    
+    return EXIT_SUCCESS;
 }
