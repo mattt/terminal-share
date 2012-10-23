@@ -24,6 +24,38 @@
 
 #import "AppDelegate.h"
 
+static void PrintHelpBanner() {
+    NSMutableArray *mutableLines = [NSMutableArray array];
+    NSMutableDictionary *mutableArguments = [NSMutableDictionary dictionary];
+    mutableArguments[@"service"] = @"A short string corresponding to the name of a particular NSSharingService to be used. Available values:\n\t\t\t\ttwitter, sinaweibo, email, message, airdrop, iphoto, aperture, facebook, flickr, vimeo, youku, tudou\n";
+    mutableArguments[@"text"] = @"Text to be shared (optional)";
+    mutableArguments[@"image"] = @"Image to be shared (optional)";
+    mutableArguments[@"video"] = @"Video to be shared (optional)";
+    mutableArguments[@"url"] = @"URL to be shared (optional)";
+    
+    [mutableLines addObjectsFromArray:@[@"terminal-share", @"", @"A command-line interface to the Mac OS X Sharing Services", @""]];
+    
+    [mutableLines addObjectsFromArray:@[@"Usage:", @"\t$ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /path/to/video] [-url \"http://example.com\"]", @""]];
+    
+    [mutableLines addObjectsFromArray:@[@"Example:", @"\t$terminal-stare -service twitter -text \"This was shared from the command-line, courtesy of terminal-share, by @mattt\" -url \"https://github.com/mattt/terminal-share\"", @""]];
+
+    
+    [mutableLines addObject:@"Arguments:"];
+    [@[@"service", @"text", @"image", @"video", @"url"] enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop) {
+        NSString *argument = [key stringByPaddingToLength:8 withString:@" " startingAtIndex:0];
+        NSString *description = [mutableArguments objectForKey:key];
+        [mutableLines addObject:[NSString stringWithFormat:@"\t-%@\t\t%@", argument, description]];
+    }];
+    [mutableLines addObject:@""];
+
+    [mutableLines addObjectsFromArray:@[@"Author:", @"\tMattt Thompson <m@mattt.me>", @""]];
+    [mutableLines addObjectsFromArray:@[@"Website:", @"\thttps://github.com/mattt", @""]];
+
+    [mutableLines enumerateObjectsUsingBlock:^(id line, NSUInteger idx, BOOL *stop) {
+        printf("%s\n", [line UTF8String]);
+    }];
+}
+
 static NSString * NSSharingServiceNameFromDefaults(NSUserDefaults *defaults) {
     NSString *service = [[defaults objectForKey:@"service"] lowercaseString];
     
@@ -41,7 +73,7 @@ static NSString * NSSharingServiceNameFromDefaults(NSUserDefaults *defaults) {
         return NSSharingServiceNameAddToSafariReadingList;
     } else if ([service isEqualToString:@"iphoto"]) {
         return NSSharingServiceNameAddToIPhoto;
-    } else if ([service isEqualToString:@"aperature"]) {
+    } else if ([service isEqualToString:@"aperture"]) {
         return NSSharingServiceNameAddToAperture;
     } else if ([service isEqualToString:@"facebook"]) {
         return NSSharingServiceNamePostOnFacebook;
@@ -98,7 +130,8 @@ static NSArray * NSSharingServiceItemsFromDefaults(NSUserDefaults *defaults) {
 
     NSString *sharingServiceName = NSSharingServiceNameFromDefaults(defaults);
     if (!sharingServiceName) {
-        exit(1);
+        PrintHelpBanner();
+        exit(EXIT_FAILURE);
     }
     
     NSSharingService *sharingService = [NSSharingService sharingServiceNamed:sharingServiceName];
@@ -126,14 +159,14 @@ static NSArray * NSSharingServiceItemsFromDefaults(NSUserDefaults *defaults) {
 - (void)sharingService:(NSSharingService *)sharingService
          didShareItems:(NSArray *)items
 {
-    exit(0);
+    exit(EXIT_SUCCESS);
 }
 
 - (void)sharingService:(NSSharingService *)sharingService
    didFailToShareItems:(NSArray *)items
                  error:(NSError *)error
 {
-    exit(1);
+    exit(EXIT_FAILURE);
 }
 
 @end
