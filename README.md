@@ -60,10 +60,6 @@ $ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /pat
 $ terminal-share -service twitter -text "This was shared from the command-line, courtesy of terminal-share, by @mattt" -url "https://github.com/mattt/terminal-share"
 ```
 
-### Known Issues
-
-At the moment, distributing just the binary in `terminal-share.app/Contents/MacOS` (which was the intended use-case), the app complains about a missing Info.plist and other information. This will hopefully be addressed soon, and be used for the first gem release.
-
 ## Contact
 
 Mattt Thompson
