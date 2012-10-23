@@ -1,7 +1,7 @@
 require 'shellwords'
 
 module TerminalShare
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   BIN_PATH = File.expand_path('bin/terminal-share')
 
