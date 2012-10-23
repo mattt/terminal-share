@@ -1,0 +1,10 @@
+require "bundler"
+Bundler.setup
+
+gemspec = eval(File.read("terminal-share.gemspec"))
+
+task :build => "#{gemspec.full_name}.gem"
+
+file "#{gemspec.full_name}.gem" => gemspec.files + ["terminal-share.gemspec"] do
+  system "gem build terminal-share.gemspec"
+end
