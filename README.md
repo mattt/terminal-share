@@ -5,7 +5,7 @@ terminal-share
 
 Mac OS X 10.8 Mountain Lion introduced [built-in sharing](http://www.apple.com/osx/whats-new/features.html#builtin-sharing). Access to this system-level feature is provided through [`NSSharingService`](http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSSharingService_Class/Reference/Reference.html).
 
-It does everything from posting to Twitter, Facebook, Flickr, Vimeo, & YouTube, to adding content to your Safari Reading List or iPhoto or Aperture Library, as well as sending files over airdrop or e-mail. It even supports Chinese web services like Sina Weibo, Tu Dou, & YouKu. 
+It does everything from posting to Twitter, Facebook, Flickr, Vimeo, & YouTube, to adding content to your Safari Reading List or iPhoto or Aperture Library, as well as sending files over airdrop or e-mail. It even supports Chinese web services like Sina Weibo, Tu Dou, & YouKu.
 
 `terminal-share` extends access to these APIs by proxying through a simple command-line application. Normally, Apple would provide such a Unix command-line interface through a Foundation Tool.
 
@@ -28,7 +28,11 @@ TerminalShare.share(:twitter, text: "This was shared from the command-line, cour
 ## Command Line
 
 ```
-$ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /path/to/video] [-url "http://example.com"]
+$ terminal-share -service NAME              \
+                [-text text]                \
+                [-image /path/to/image]     \
+                [-video /path/to/video]     \
+                [-url "http://example.com"]
 ```
 
 ### Arguments
@@ -57,7 +61,10 @@ $ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /pat
 ### Example
 
 ```
-$ terminal-share -service twitter -text "This was shared from the command-line, courtesy of terminal-share, by @mattt" -url "https://github.com/mattt/terminal-share"
+$ terminal-share -service twitter \
+                 -text "This was shared from the command-line,  \
+                        courtesy of terminal-share, by @mattt"  \
+                 -url "https://github.com/mattt/terminal-share"
 ```
 
 ## Contact
