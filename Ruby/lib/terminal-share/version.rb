@@ -1,3 +1,3 @@
 module TerminalShare
-  VERSION = '0.1.3'
+  VERSION = '1.0.0'
 end
