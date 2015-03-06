@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "terminal-share"
   s.authors     = ["Mattt Thompson"]
   s.email       = "m@mattt.me"
+  s.license     = "MIT"
   s.homepage    = "http://mattt.me"
   s.version     = TerminalShare::VERSION
   s.platform    = Gem::Platform::RUBY
