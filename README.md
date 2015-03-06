@@ -67,13 +67,9 @@ $ terminal-share -service twitter \
                  -url "https://github.com/mattt/terminal-share"
 ```
 
-## Contact
+## Creator
 
-Mattt Thompson
-
-- http://github.com/mattt
-- http://twitter.com/mattt
-- m@mattt.me
+Mattt Thompson ([@mattt](https://twitter.com/mattt))
 
 ## Credit
 
