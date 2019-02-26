@@ -3,7 +3,7 @@ terminal-share
 
 **Mac OS X Sharing Services... As A Service**
 
-Mac OS X 10.8 Mountain Lion introduced [built-in sharing](http://www.apple.com/osx/whats-new/features.html#builtin-sharing). Access to this system-level feature is provided through [`NSSharingService`](http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSSharingService_Class/Reference/Reference.html).
+Mac OS X 10.8 Mountain Lion introduced [built-in sharing](http://www.apple.com/osx/whats-new/features.html#builtin-sharing). Access to this system-level feature is provided through [`NSSharingService`](https://developer.apple.com/documentation/appkit/nssharingservice).
 
 It does everything from posting to Twitter, Facebook, Flickr, Vimeo, & YouTube, to adding content to your Safari Reading List or iPhoto or Aperture Library, as well as sending files over airdrop or e-mail. It even supports Chinese web services like Sina Weibo, Tu Dou, & YouKu.
 
