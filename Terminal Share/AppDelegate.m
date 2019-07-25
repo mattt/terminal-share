@@ -37,7 +37,7 @@ static void PrintHelpBanner() {
     
     [mutableLines addObjectsFromArray:@[@"Usage:", @"\t$ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /path/to/video] [-url \"http://example.com\"]", @""]];
     
-    [mutableLines addObjectsFromArray:@[@"Example:", @"\t$terminal-stare -service twitter -text \"This was shared from the command-line, courtesy of terminal-share, by @mattt\" -url \"https://github.com/mattt/terminal-share\"", @""]];
+    [mutableLines addObjectsFromArray:@[@"Example:", @"\t$terminal-share -service twitter -text \"This was shared from the command-line, courtesy of terminal-share, by @mattt\" -url \"https://github.com/mattt/terminal-share\"", @""]];
 
     
     [mutableLines addObject:@"Arguments:"];
