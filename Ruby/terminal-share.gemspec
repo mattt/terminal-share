@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "A command-line interface to the Mac OS X Sharing Services"
 
   s.add_development_dependency "rspec", "~> 0.6.1"
-  s.add_development_dependency "rake",  "~> 0.9.2"
+  s.add_development_dependency "rake",  "~> 13.0.1"
 
   s.files         = Dir["./**/*"].reject{|file| file =~ /\.\/(bin|log|pkg|script|spec|test|vendor)/}
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
