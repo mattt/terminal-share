@@ -32,16 +32,17 @@ static void PrintHelpBanner() {
     mutableArguments[@"image"] = @"Image to be shared (optional)";
     mutableArguments[@"video"] = @"Video to be shared (optional)";
     mutableArguments[@"url"] = @"URL to be shared (optional)";
+    mutableArguments[@"file"] = @"File to be shared (optional)";
     
     [mutableLines addObjectsFromArray:@[@"terminal-share", @"", @"A command-line interface to the Mac OS X Sharing Services", @""]];
     
-    [mutableLines addObjectsFromArray:@[@"Usage:", @"\t$ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /path/to/video] [-url \"http://example.com\"]", @""]];
+    [mutableLines addObjectsFromArray:@[@"Usage:", @"\t$ terminal-share -service NAME [-text text] [-image /path/to/image] [-video /path/to/video] [-url \"http://example.com\"] [-file /path/to/file]", @""]];
     
     [mutableLines addObjectsFromArray:@[@"Example:", @"\t$terminal-share -service twitter -text \"This was shared from the command-line, courtesy of terminal-share, by @mattt\" -url \"https://github.com/mattt/terminal-share\"", @""]];
 
     
     [mutableLines addObject:@"Arguments:"];
-    [@[@"service", @"text", @"image", @"video", @"url"] enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop) {
+    [@[@"service", @"text", @"image", @"video", @"url", @"file"] enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop) {
         NSString *argument = [key stringByPaddingToLength:8 withString:@" " startingAtIndex:0];
         NSString *description = [mutableArguments objectForKey:key];
         [mutableLines addObject:[NSString stringWithFormat:@"\t-%@\t\t%@", argument, description]];
@@ -117,6 +118,13 @@ static NSArray * NSSharingServiceItemsFromDefaults(NSUserDefaults *defaults) {
         }
     }
     
+    if ([defaults objectForKey:@"file"]) {
+         NSURL *fileURL = [NSURL fileURLWithPath:[defaults objectForKey:@"file"]];
+         if (fileURL) {
+             [mutableItems addObject:fileURL];
+         }
+     }
+
     return mutableItems;
 }
 
