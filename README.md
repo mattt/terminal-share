@@ -1,15 +1,17 @@
-terminal-share
---------------
+# terminal-share
 
-**Mac OS X Sharing Services... As A Service**
+**macOS Sharing Services... as a Service**
 
-Mac OS X 10.8 Mountain Lion introduced [built-in sharing](http://www.apple.com/osx/whats-new/features.html#builtin-sharing). Access to this system-level feature is provided through [`NSSharingService`](https://developer.apple.com/documentation/appkit/nssharingservice).
+Mac OS X 10.8 Mountain Lion introduced built-in sharing as a system-level feature
+with programmatic access provided via the
+[`NSSharingService` APIs](https://developer.apple.com/documentation/appkit/nssharingservice).
 
-It does everything from posting to Twitter, Facebook, Flickr, Vimeo, & YouTube, to adding content to your Safari Reading List or iPhoto or Aperture Library, as well as sending files over airdrop or e-mail. It even supports Chinese web services like Sina Weibo, Tu Dou, & YouKu.
+`terminal-share` extends access to these APIs
+by proxying through a simple command-line application.
 
-`terminal-share` extends access to these APIs by proxying through a simple command-line application. Normally, Apple would provide such a Unix command-line interface through a Foundation Tool.
+## Installation
 
-## Ruby
+Install `terminal-share` by running the following command from Terminal:
 
 ```
 $ gem install terminal-share
@@ -37,20 +39,20 @@ $ terminal-share -service NAME              \
 
 ### Arguments
 
-- `service`: (__Required__) A short string corresponding to the name of a particular `NSSharingService` to be used. Available values:
-    - `twitter` - `NSSharingServiceNamePostOnTwitter`
-    - `sinaweibo` - `NSSharingServiceNamePostOnSinaWeibo`
-    - `email` - `NSSharingServiceNameComposeEmail`
-    - `message` - `NSSharingServiceNameComposeMessage`
-    - `airdrop` - `NSSharingServiceNameSendViaAirDrop`
-    - `readinglist` - `NSSharingServiceNameAddToSafariReadingList`
-    - `iphoto` - `NSSharingServiceNameAddToIPhoto`
-    - `aperture` - `NSSharingServiceNameAddToAperture`
-    - `facebook` - `NSSharingServiceNamePostOnFacebook`
-    - `flickr` - `NSSharingServiceNamePostImageOnFlickr`
-    - `vimeo` - `NSSharingServiceNamePostVideoOnVimeo`
-    - `youku` - `NSSharingServiceNamePostVideoOnYouku`
-    - `tudou` - `NSSharingServiceNamePostVideoOnTudou`
+- `service`: (**Required**) A short string corresponding to the name of a particular `NSSharingService` to be used. Available values:
+  - `twitter` - `NSSharingServiceNamePostOnTwitter`
+  - `sinaweibo` - `NSSharingServiceNamePostOnSinaWeibo`
+  - `email` - `NSSharingServiceNameComposeEmail`
+  - `message` - `NSSharingServiceNameComposeMessage`
+  - `airdrop` - `NSSharingServiceNameSendViaAirDrop`
+  - `readinglist` - `NSSharingServiceNameAddToSafariReadingList`
+  - `iphoto` - `NSSharingServiceNameAddToIPhoto`
+  - `aperture` - `NSSharingServiceNameAddToAperture`
+  - `facebook` - `NSSharingServiceNamePostOnFacebook`
+  - `flickr` - `NSSharingServiceNamePostImageOnFlickr`
+  - `vimeo` - `NSSharingServiceNamePostVideoOnVimeo`
+  - `youku` - `NSSharingServiceNamePostVideoOnYouku`
+  - `tudou` - `NSSharingServiceNamePostVideoOnTudou`
 - `text`: (_optional_) Text to be shared.
 - `image`: (_optional_) File path to an image to be shared.
 - `video`: (_optional_) File path to a video to be shared.
@@ -69,12 +71,15 @@ $ terminal-share -service twitter \
 
 ## Creator
 
-Mattt Thompson ([@mattt](https://twitter.com/mattt))
+Mattt ([@mattt](https://twitter.com/mattt))
 
 ## Credit
 
-Thanks to [Eloy Durán](https://github.com/alloy) for his work on [`terminal-notifier`](https://github.com/alloy/terminal-notifier), which was used as inspiration and a guideline for how to use the Script Bridge APIs.
+Thanks to [Eloy Durán](https://github.com/alloy) for his work on 
+[`terminal-notifier`](https://github.com/alloy/terminal-notifier), 
+which provides a great example of how to use the Script Bridge APIs.
 
 ## License
 
-terminal-share is available under the MIT license. See the LICENSE file for more info.
+terminal-share is available under the MIT license. 
+See the LICENSE file for more info.
