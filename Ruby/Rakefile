@@ -1,10 +1,10 @@
-require "bundler"
+# frozen_string_literal: true
+
+require 'bundler'
 Bundler.setup
 
-gemspec = eval(File.read("terminal-share.gemspec"))
+require 'bundler/gem_tasks'
 
-task :build => "#{gemspec.full_name}.gem"
-
-file "#{gemspec.full_name}.gem" => gemspec.files + ["terminal-share.gemspec"] do
-  system "gem build terminal-share.gemspec"
+task :default do
+  system 'rake -T'
 end
