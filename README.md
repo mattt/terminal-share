@@ -1,3 +1,5 @@
+> This library is no longer being maintained.
+
 # terminal-share
 
 **macOS Sharing Services... as a Service**
