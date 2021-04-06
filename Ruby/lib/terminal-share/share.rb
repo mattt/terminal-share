@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'shellwords'
 
 module TerminalShare
-  class UnavailableException < Exception
+  class UnavailableException < RuntimeError
   end
 
   class << self
@@ -9,8 +11,8 @@ module TerminalShare
       raise UnavailableException unless available?
 
       arguments = ["-service #{service}"]
-      [:text, :image, :video, :url].each do |type|
-        arguments << %{-#{type} "#{items[type]}"} if items[type]
+      %i[text image video url].each do |type|
+        arguments << %(-#{type} "#{items[type]}") if items[type]
       end
 
       command = "terminal-share #{Shellwords.shelljoin(arguments)}"
